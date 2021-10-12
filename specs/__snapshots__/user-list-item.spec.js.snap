@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User List Component Shallow Mount 1`] = `
+<div>
+  <ul>
+    <li><strong>Tony Stark - 48 year(s) old</strong></li>
+    <li><strong>Steve Rogers - 103 year(s) old</strong></li>
+    <li><strong>Bucky Barnes - 106 year(s) old</strong></li>
+    <li><strong>G Root - 200 year(s) old</strong></li>
+  </ul>
+</div>
+`;

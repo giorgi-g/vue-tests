@@ -1,0 +1,17 @@
+{
+  "plugins": ["import"],
+  "rules": {
+    "no-undef": 0,
+    "no-reserved-keys": 0,
+    "module": 1,
+    "no-self-import": 0,
+    "no-restricted-imports": 0,
+    "no-debugger": 1,
+    "import/no-require": 0,
+    "import/no-unresolved": 0,
+    "import/named": 0,
+    "import/namespace": 0,
+    "import/default": 0,
+    "import/export": 0
+  }
+}

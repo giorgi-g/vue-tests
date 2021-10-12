@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mount an AlertComponent component 1`] = `
+<div class="alert">
+  <p>The Timer!</p>
+  <p>Time left 5</p>
+</div>
+`;
