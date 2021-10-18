@@ -28,7 +28,7 @@ export default {
     return {
       users: [],
       minAge: 18,
-      maxAge: 105,
+      maxAge: 145,
       user: {
         name: null,
         surname: null,
@@ -36,24 +36,26 @@ export default {
       }
     };
   },
-
   methods: {
+    clearUserObject() {
+      this.user.name = null;
+      this.user.surname = null;
+      this.user.age = 0;
+    },
     addToUsersList() {
-      if (this.user.name == null) return;
+      if (this.user.name == null) return this.clearUserObject();
 
-      if (this.user.surname == null) return;
+      if (this.user.surname == null) return this.clearUserObject();
 
       if (
         this.user.age === 0 ||
         this.user.age < this.minAge ||
         this.user.age > this.maxAge
       )
-        return;
+        return this.clearUserObject();
 
       this.users.push(this.user);
-      this.user.name = null;
-      this.user.surname = null;
-      this.user.age = 0;
+      this.clearUserObject();
     }
   }
 };

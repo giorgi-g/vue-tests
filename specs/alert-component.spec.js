@@ -24,7 +24,7 @@ describe("Lifecycle methods", () => {
     expect(wrapper.vm.interval).not.toBe(undefined);
   });
 
-  test("counter workds", () => {
+  test("counter works", () => {
     const wrapper = mount(AlertComponent);
     expect(wrapper.vm.counter).toBe(0);
     // console.log("0. wrapper.vm.counter", wrapper.vm.counter);

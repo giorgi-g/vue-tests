@@ -5,33 +5,47 @@ import { mount, createLocalVue } from "@vue/test-utils";
 import MoviesList from "@/components/Movie/MoviesList";
 import movie from "@/store/movie";
 
-// const VueWithVuex = createLocalVue();
+const localVue = createLocalVue();
 Vue.use(Vuex);
-// VueWithVuex.use(Vuex);
+localVue.use(Vuex);
 
 const store = new Vuex.Store(movie);
 
 test("Store is loaded", async () => {
   const wrapper = mount(MoviesList, {
-    // localVue: VueWithVuex,
+    // localVue: localVue,
     store
   });
 
-  store.state.movies.push("Avengers");
+  const movieNameInput = wrapper.find("#movie-name");
+  movieNameInput.element.value = "Infinity War";
+  movieNameInput.trigger("input");
 
-  expect(wrapper.vm.$data.movies).toEqual(["Avengers"]);
+  const addMovieButton = wrapper.find("#add-movie");
+  addMovieButton.trigger("click");
+
+  // store.state.movies.push("Avengers 0");
+  // await store.commit("addMovie", "Avengers 1");
+  await store.dispatch("addMovie", "Avengers");
+
+  expect(wrapper.vm.$data.movies).toEqual(["Infinity War", "Avengers"]);
 });
 
 test("Store works", async () => {
   const store = new Vuex.Store(movie);
 
   const wrapper = mount(MoviesList, {
-    // localVue: VueWithVuex,
+    localVue,
     store
   });
 
-  wrapper.vm.addMovie("Infinity War");
-  // await store.dispatch("addMovie", "Infinity War");
+  wrapper.vm.addMovie("Black Widow");
+  await store.dispatch("addMovie", "Spiderman - Homecoming");
   // console.log("wrapper.vm.$data.movies", wrapper.vm.$data.movies);
-  expect(wrapper.vm.$data.movies).toEqual(["Avengers", "Infinity War"]);
+  expect(wrapper.vm.$data.movies).toEqual([
+    "Infinity War",
+    "Avengers",
+    "Black Widow",
+    "Spiderman - Homecoming"
+  ]);
 });

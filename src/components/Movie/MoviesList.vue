@@ -1,8 +1,10 @@
 <template>
   <div>
-    <!--    <input type="text" v-model="movieName" />-->
+    <input type="text" v-model="movieName" id="movie-name" />
 
-    <!--    <button type="button" @click="addMovie(movieName)">Add a Movie</button>-->
+    <button type="button" id="add-movie" @click="addMovie(movieName)">
+      Add a Movie
+    </button>
 
     <ul>
       <li v-for="(item, index) of movies" :key="`movie-${index}`">

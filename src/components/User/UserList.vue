@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul>
+    <ul class="">
       <UserListItem :key="index" v-for="(user, index) in users" :user="user" />
     </ul>
   </div>
